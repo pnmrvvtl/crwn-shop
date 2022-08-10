@@ -1,12 +1,8 @@
 import './sign-in-form.styles.scss'
 import React, {useState} from 'react';
-import {
-    createUserDocumentFromAuth,
-    signInAuthWithEmailAndPassword,
-    signInWithGooglePopup
-} from "../../utils/firebase/firebase.utils";
+import {signInAuthWithEmailAndPassword, signInWithGooglePopup} from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import Button, {BUTTON_TYPE_CLASSES} from "../button/button.component";
 
 const defaultFormFields = {
     email: '',
@@ -60,11 +56,12 @@ const SignInForm = () => {
                     value={password}/>
                 <div className="buttons-container">
                     <Button type='submit'>Sign In</Button>
-                    <Button type='button' onClick={signInWithGoogle} buttonType='google'>Google Sign In</Button>
+                    <Button type='button' onClick={signInWithGoogle} buttonType={BUTTON_TYPE_CLASSES.google}>Google Sign In</Button>
                 </div>
             </form>
         </div>
     );
 };
-
+//todo redirect after sign in
+//todo import some new font
 export default SignInForm;
